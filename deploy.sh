@@ -1,5 +1,10 @@
 #!/bin/bash
-docker stop python_app || true 
-docker rm python_app || true 
-docker run -d -p 5000:5000 --name 
-python_app python -jenkins-app 
+if [ "$(docker ps -q -f name=python_app)" ]; then
+    docker stop python_app
+fi
+
+if [ "$(docker ps -aq -f name=python_app)" ]; then
+    docker rm python_app
+fi
+
+docker run -d --name python_app -p 5000:5000 python-jenkins-app
