@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: "main",
-                url: ''
+                url: 'https://github.com/Kameshjustin/Devops_project_jenkins_1.git'
             }
         }
     
